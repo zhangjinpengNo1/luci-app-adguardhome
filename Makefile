@@ -12,16 +12,11 @@ PKG_MAINTAINER:=<https://github.com/rufengsuixing/luci-app-adguardhome>
 
 LUCI_TITLE:=LuCI app for AdGuardHome
 LUCI_PKGARCH:=all
-LUCI_DEPENDS:=+ca-certs +curl +wget-ssl +PACKAGE_$(PKG_NAME)_Core_Binary:AdGuardHome
+LUCI_DEPENDS:=+ca-certs +curl +wget-ssl
 LUCI_DESCRIPTION:=LuCI support for AdGuardHome
 
 define Package/$(PKG_NAME)/config
-config PACKAGE_$(PKG_NAME)_Core_Binary
-	bool "Include AdGuardHome Core Binary"
-	default y
 endef
-
-PKG_CONFIG_DEPENDS:= CONFIG_PACKAGE_$(PKG_NAME)_Core_Binary
 
 define Package/luci-app-adguardhome/conffiles
 /usr/share/AdGuardHome/links.txt
